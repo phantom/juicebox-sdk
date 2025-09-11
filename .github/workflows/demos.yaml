@@ -13,7 +13,7 @@ env:
 jobs:
   rust:
     name: Rust
-    runs-on: ubuntu-x64-8-core
+    runs-on: ubuntu
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v3
@@ -45,7 +45,7 @@ jobs:
 
   swift:
     name: Swift
-    runs-on: ubuntu-x64-8-core
+    runs-on: ubuntu
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v3
@@ -85,7 +85,7 @@ jobs:
 
   wasm:
     name: WASM
-    runs-on: ubuntu-x64-8-core
+    runs-on: ubuntu
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v3
