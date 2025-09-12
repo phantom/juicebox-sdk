@@ -5,8 +5,8 @@ Pod::Spec.new do |s|
   s.version          = '0.3.2'
   s.summary          = 'A Swift wrapper library for interfacing with the Juicebox service.'
 
-  s.homepage         = 'https://github.com/juicebox-systems/juicebox-sdk'
-  s.source           = { :git => 'https://github.com/juicebox-systems/juicebox-sdk.git', :tag => "#{s.version}", :submodules => true }
+  s.homepage         = 'https://github.com/phantom/juicebox-sdk'
+  s.source           = { :git => 'https://github.com/phantom/juicebox-sdk.git', :tag => "#{s.version}", :submodules => true }
 
   s.swift_version    = '5'
   s.platform         = :ios, '13'
