@@ -108,18 +108,18 @@ afterEvaluate {
                     name = 'sdk'
                     packaging = 'aar'
                     description = 'Juicebox SDK for Android'
-                    url = 'https://github.com/juicebox-systems/juicebox-sdk'
+                    url = 'https://github.com/phantom/juicebox-sdk'
 
                     scm {
-                        url = 'https://github.com/juicebox-systems/juicebox-sdk/'
-                        connection = 'scm:git@github.com:juicebox-systems/juicebox-sdk.git'
-                        developerConnection = 'scm:git@github.com:juicebox-systems/juicebox-sdk.git'
+                        url = 'https://github.com/phantom/juicebox-sdk/'
+                        connection = 'scm:git@github.com:phantom/juicebox-sdk.git'
+                        developerConnection = 'scm:git@github.com:phantom/juicebox-sdk.git'
                     }
 
                     licenses {
                         license {
                             name = 'MIT'
-                            url = "https://github.com/juicebox-systems/juicebox-sdk/blob/$version/LICENSE"
+                            url = "https://github.com/phantom/juicebox-sdk/blob/$version/LICENSE"
                         }
                     }
 
