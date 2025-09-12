@@ -13,7 +13,7 @@ env:
 jobs:
   rust:
     name: Rust
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v3
@@ -39,14 +39,13 @@ jobs:
         uses: ./.github/actions/software-realm
         with:
           start-realm-count: 25
-          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Run Rust Demo
         run: target/debug/demo --configuration ${{ steps.software-realm.outputs.configuration }} --auth-tokens ${{ steps.software-realm.outputs.auth-tokens }}
 
   swift:
     name: Swift
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v3
@@ -80,14 +79,13 @@ jobs:
         uses: ./.github/actions/software-realm
         with:
           start-realm-count: 25
-          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Run Swift Demo
         run: swift/demo/.build/debug/demo -c ${{ steps.software-realm.outputs.configuration }} -a ${{ steps.software-realm.outputs.auth-tokens }}
 
   wasm:
     name: WASM
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v3
@@ -124,7 +122,6 @@ jobs:
         uses: ./.github/actions/software-realm
         with:
           start-realm-count: 25
-          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Run WASM Demo
         run: javascript/demo/demo.ts -c ${{ steps.software-realm.outputs.configuration }} -a ${{ steps.software-realm.outputs.auth-tokens }}

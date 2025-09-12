@@ -23,13 +23,13 @@ env:
 jobs:
   swift-package:
     name: Swift Package
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
     - uses: actions/checkout@v3
 
-    - name: Show cargo package versions before cache unpack
-      run: cargo install --list && cbindgen -V && which cbindgen
+    # - name: Show cargo package versions before cache unpack
+    #   run: cargo install --list && cbindgen -V && which cbindgen
 
     - name: Install Rust
       uses: actions-rs/toolchain@v1
@@ -38,14 +38,14 @@ jobs:
         profile: minimal
         toolchain: ${{ env.INSTALL_RUST_VERSION }}
 
-    - name: Show cargo package versions before cache unpack
-      run: cargo install --list && cbindgen -V && which cbindgen
+    # - name: Show cargo package versions before cache unpack
+    #   run: cargo install --list && cbindgen -V && which cbindgen
 
     - name: Use Rust Cache
       uses: Swatinem/rust-cache@v2
 
-    - name: Show cached cargo package versions
-      run: cargo install --list && cbindgen -V && which cbindgen
+    # - name: Show cached cargo package versions
+    #   run: cargo install --list && cbindgen -V && which cbindgen
 
     - name: Install cbindgen
       # keep this version in sync with the one in Cargo.toml
@@ -67,6 +67,10 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install Swiftlint
+        run: |
+          brew install swiftlint
 
       - name: Lint
         run: swiftlint lint --strict --reporter github-actions-logging
@@ -91,7 +95,7 @@ jobs:
 
   rust:
     name: Rust
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v3
@@ -134,8 +138,6 @@ jobs:
 
       - name: Software Realm
         uses: ./.github/actions/software-realm
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Run software realm integration tests
         uses: actions-rs/cargo@v1
@@ -154,7 +156,7 @@ jobs:
 
   jni:
     name: Android
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
 
@@ -184,7 +186,7 @@ jobs:
 
   wasm:
     name: Wasm
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v3

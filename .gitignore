@@ -4,3 +4,4 @@
 /swift/.build
 /swift/.swiftpm
 /target
+.rust_analyzer_target_editor

@@ -2,8 +2,6 @@
 
 Register and recover PIN-protected secrets on behalf of a particular user.
 
-[Documentation](https://docs.juicebox.xyz/android/juicebox-sdk/xyz.juicebox.sdk/)
-
 ### Install
 
 #### Gradle
@@ -15,7 +13,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'xyz.juicebox:sdk:0.3.0'
+  implementation 'xyz.juicebox:sdk:0.3.2'
 }
 ```
 
@@ -25,7 +23,7 @@ dependencies {
 <dependency>
   <groupId>xyz.juicebox</groupId>
   <artifactId>sdk</artifactId>
-  <version>0.3.0</version>
+  <version>0.3.2</version>
 </dependency>
 ```
 
