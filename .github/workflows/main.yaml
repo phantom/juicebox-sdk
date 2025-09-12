@@ -38,14 +38,14 @@ jobs:
         profile: minimal
         toolchain: ${{ env.INSTALL_RUST_VERSION }}
 
-    - name: Show cargo package versions before cache unpack
-      run: cargo install --list && cbindgen -V && which cbindgen
+    # - name: Show cargo package versions before cache unpack
+    #   run: cargo install --list && cbindgen -V && which cbindgen
 
     - name: Use Rust Cache
       uses: Swatinem/rust-cache@v2
 
-    - name: Show cached cargo package versions
-      run: cargo install --list && cbindgen -V && which cbindgen
+    # - name: Show cached cargo package versions
+    #   run: cargo install --list && cbindgen -V && which cbindgen
 
     - name: Install cbindgen
       # keep this version in sync with the one in Cargo.toml
