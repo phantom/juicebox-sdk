@@ -28,8 +28,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Show cargo package versions before cache unpack
-      run: cargo install --list && cbindgen -V && which cbindgen
+    # - name: Show cargo package versions before cache unpack
+    #   run: cargo install --list && cbindgen -V && which cbindgen
 
     - name: Install Rust
       uses: actions-rs/toolchain@v1
