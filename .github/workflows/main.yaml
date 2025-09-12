@@ -23,7 +23,7 @@ env:
 jobs:
   swift-package:
     name: Swift Package
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
     - uses: actions/checkout@v3
@@ -95,7 +95,7 @@ jobs:
 
   rust:
     name: Rust
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v3
@@ -156,7 +156,7 @@ jobs:
 
   jni:
     name: Android
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
 
@@ -186,7 +186,7 @@ jobs:
 
   wasm:
     name: Wasm
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v3
