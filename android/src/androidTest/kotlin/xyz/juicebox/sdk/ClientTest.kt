@@ -127,6 +127,16 @@ class ClientTest {
         assertEquals(DeleteError.ASSERTION, exception.error)
     }
 
+    @Test
+    fun testConnectionFailure() {
+        val client = client("https://invalid-host.local")
+        assertThrows(RegisterException::class.java) {
+            runBlocking {
+                client.register("test".toByteArray(), "secret".toByteArray(), "info".toByteArray(), 5)
+            }
+        }
+    }
+
     private fun client(url: String): Client {
         val realmId1 = RealmId(string = "000102030405060708090A0B0C0D0E0F")
         val realmId2 = RealmId(string = "010102030405060708090A0B0C0D0E0F")
