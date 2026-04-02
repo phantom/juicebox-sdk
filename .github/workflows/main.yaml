@@ -26,13 +26,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     # - name: Show cargo package versions before cache unpack
     #   run: cargo install --list && cbindgen -V && which cbindgen
 
     - name: Install Rust
-      uses: actions-rs/toolchain@v1
+      uses: actions-rs/toolchain@16499b5e05bf2e26879000db0c1d13f7e13fa3af # v1
       with:
         default: true
         profile: minimal
@@ -42,7 +42,7 @@ jobs:
     #   run: cargo install --list && cbindgen -V && which cbindgen
 
     - name: Use Rust Cache
-      uses: Swatinem/rust-cache@v2
+      uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
 
     # - name: Show cached cargo package versions
     #   run: cargo install --list && cbindgen -V && which cbindgen
@@ -66,7 +66,7 @@ jobs:
     runs-on: macOS-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
       - name: Install Swiftlint
         run: |
@@ -82,7 +82,7 @@ jobs:
           rustup default ${{ env.INSTALL_RUST_VERSION }}
 
       - name: Use Rust Cache
-        uses: Swatinem/rust-cache@v2
+        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
 
       - name: Build juicebox_sdk_ffi
         run: |
@@ -98,10 +98,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
       - name: Install Rust
-        uses: actions-rs/toolchain@v1
+        uses: actions-rs/toolchain@16499b5e05bf2e26879000db0c1d13f7e13fa3af # v1
         with:
           components: rustfmt, clippy, rust-src
           default: true
@@ -109,15 +109,15 @@ jobs:
           toolchain: ${{ env.INSTALL_RUST_VERSION }}
 
       - name: Use Rust Cache
-        uses: Swatinem/rust-cache@v2
+        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
 
       - name: Run cargo build
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1
         with:
           command: build
 
       - name: Run cargo test
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1
         with:
           args: --workspace
           command: test
@@ -125,13 +125,13 @@ jobs:
           RUST_BACKTRACE: '1'
 
       - name: Run cargo fmt
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1
         with:
           args: --all -- --check
           command: fmt
 
       - name: Run clippy
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1
         with:
           args: --workspace --tests -- -D warnings
           command: clippy
@@ -140,13 +140,13 @@ jobs:
         uses: ./.github/actions/software-realm
 
       - name: Run software realm integration tests
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1
         with:
           args: -p juicebox_sdk software_realm --features software_realm_tests
           command: test
 
       - name: Build no_std
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1
         env:
           # Enable nightly features on stable cargo/rustc for build-std.
           RUSTC_BOOTSTRAP: 1
@@ -160,7 +160,7 @@ jobs:
     timeout-minutes: 20
     steps:
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
       - name: Install Rust
         run: |
@@ -168,13 +168,13 @@ jobs:
           rustup default ${{ env.INSTALL_RUST_VERSION }}
 
       - name: Use Rust Cache
-        uses: Swatinem/rust-cache@v2
+        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
 
       - name: Build juicebox_sdk_jni
         run: ./android/jni.sh
 
       - name: Set up JDK 11
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@17f84c3641ba7b8f6deff6309fc4c864478f5d62 # v3
         with:
           java-version: 11
           distribution: 'adopt'
@@ -189,19 +189,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
       - name: Install Rust
-        uses: actions-rs/toolchain@v1
+        uses: actions-rs/toolchain@16499b5e05bf2e26879000db0c1d13f7e13fa3af # v1
         with:
           default: true
           profile: minimal
           toolchain: ${{ env.INSTALL_RUST_VERSION }}
 
       - name: Use Rust Cache
-        uses: Swatinem/rust-cache@v2
+        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
 
-      - uses: jetli/wasm-pack-action@v0.4.0
+      - uses: jetli/wasm-pack-action@0d096b08b4e5a7de8c28de67e11e945404e9eefa # v0.4.0
 
       - name: Run Tests
         run: WASM_BINDGEN_TEST_TIMEOUT=60 wasm-pack test --firefox --headless rust/sdk/bridge/wasm

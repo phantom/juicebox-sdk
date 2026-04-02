@@ -18,14 +18,14 @@ runs:
   using: "composite"
   steps:
     - name: Clone Software Realm
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
       with:
         repository: 'juicebox-systems/juicebox-software-realm'
         path: 'juicebox-software-realm'
         ref: ${{ inputs.ref }}
 
     - name: Set up Go
-      uses: actions/setup-go@v3
+      uses: actions/setup-go@be3c94b385c4f180051c996d336f57a34c397495 # v3
       with:
         go-version: '1.21'
         check-latest: true
@@ -38,7 +38,7 @@ runs:
         mv jb-sw-realm /usr/local/bin
 
     - name: Build Tokens
-      uses: actions-rs/cargo@v1
+      uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1
       if: ${{ inputs.start-realm-count > 0 }}
       with:
         args: -p juicebox_tokens_cli
